@@ -2,38 +2,24 @@
   "tarefas": [
     {
       "id": 1,
-      "descricao": "Ir ao supermercado",
-      "categoria": "Casa",
-      "statusFinalizado": true,
-      "prioridade": "Baixa"
+      "descricao": "Estudar animações no Angular",
+      "statusFinalizado": false,
+      "categoria": "Estudos",
+      "prioridade": "Alta"
     },
     {
       "id": 2,
-      "descricao": "Estudar sobre acessibilidade",
-      "categoria": "Trabalho",
+      "descricao": "Lavar a louça",
       "statusFinalizado": false,
+      "categoria": "Casa",
       "prioridade": "Normal"
     },
     {
       "id": 3,
-      "descricao": "Lavar louça",
-      "categoria": "Casa",
+      "descricao": "Fazer planilhas",
       "statusFinalizado": false,
-      "prioridade": "Normal"
-    },
-    {
-      "id": 4,
-      "descricao": "Preencher formulário de inscrição",
-      "categoria": "Estudos",
-      "statusFinalizado": false,
-      "prioridade": "Normal"
-    },
-    {
-      "id": 5,
-      "descricao": "Trocar lâmpada",
-      "categoria": "Casa",
-      "statusFinalizado": true,
-      "prioridade": "Alta"
+      "categoria": "Trabalho",
+      "prioridade": "Baixa"
     }
   ]
 }
