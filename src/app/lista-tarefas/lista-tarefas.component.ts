@@ -4,13 +4,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { TarefaService } from 'src/app/service/tarefa.service';
 import { Tarefa } from '../interface/tarefa';
-import { highlightedStatedTrigger, shownStateTrigger } from '../animations';
+import { buttonCheckTrigger, buttonCriarTrigger, highlightedStatedTrigger, shownStateTrigger } from '../animations';
 
 @Component({
   selector: 'app-lista-tarefas',
   templateUrl: './lista-tarefas.component.html',
   styleUrls: ['./lista-tarefas.component.css'],
-  animations: [highlightedStatedTrigger, shownStateTrigger]
+  animations: [highlightedStatedTrigger, shownStateTrigger, buttonCheckTrigger, buttonCriarTrigger]
 })
 export class ListaTarefasComponent implements OnInit {
   listaTarefas: Tarefa[] = [];
@@ -18,6 +18,8 @@ export class ListaTarefasComponent implements OnInit {
   categoria: string = '';
   validado: boolean = false;
   destacado: number = -1;
+  id: number = 0;
+  botaoCria: string = 'normal'
 
   formulario: FormGroup = this.fomBuilder.group({
     id: [0],
@@ -110,6 +112,7 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   finalizarTarefa(id: number) {
+    this.id = id;
     this.service.buscarPorId(id!).subscribe((tarefa) => {
       this.service.atualizarStatusTarefa(tarefa).subscribe(() => {
         this.listarAposCheck();
@@ -140,5 +143,12 @@ export class ListaTarefasComponent implements OnInit {
       this.validado = true;
       return 'form-tarefa';
     }
+  }
+
+  botaoElevado(){
+    this.botaoCria = 'elevado'
+  }
+  botaoNormal(){
+    this.botaoCria = 'normal'
   }
 }

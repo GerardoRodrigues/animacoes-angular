@@ -1,6 +1,6 @@
 <section class="criar-tarefa">
   <div class="botao-criar">
-    <button (click)="mostrarOuEsconderFormulario()">
+    <button (click)="mostrarOuEsconderFormulario()" [@creatButton]="botaoCria" (mouseover)="botaoElevado()" (mouseout)="botaoNormal()">
       Criar nova tarefa
     </button>
   </div>
@@ -88,7 +88,8 @@
         <p class="status-tarefa">
           <button
             [ngClass]="(tarefa.statusFinalizado == true) ? 'icone-checked' : 'icone-unchecked'"
-            (click)="finalizarTarefa(tarefa.id);">
+            (click)="finalizarTarefa(tarefa.id);"
+            [@buttonCheck]="id === tarefa.id ? 'checked' : 'unchecked'">
           </button>
         </p>
       </div>

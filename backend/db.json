@@ -10,14 +10,14 @@
     {
       "id": 2,
       "descricao": "Lavar a louça",
-      "statusFinalizado": false,
+      "statusFinalizado": true,
       "categoria": "Casa",
       "prioridade": "Normal"
     },
     {
       "id": 3,
       "descricao": "Fazer planilhas",
-      "statusFinalizado": false,
+      "statusFinalizado": true,
       "categoria": "Trabalho",
       "prioridade": "Baixa"
     }

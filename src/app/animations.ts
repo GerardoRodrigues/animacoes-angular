@@ -31,3 +31,26 @@ export const shownStateTrigger = trigger('shownState', [
         }))
     ])
 ])
+
+export const buttonCheckTrigger = trigger('buttonCheck', [
+    transition('* => checked',[
+        animate(300, style({
+            transform: 'scale(1.4)'
+        }))
+    ])
+])
+
+export const buttonCriarTrigger = trigger('creatButton', [
+    state('normal', style({
+        transform: 'scale(1)'
+    })),
+    state('elevado', style({
+        transform: 'scale(1.3)'
+    })),
+    transition('normal => elevado',[
+        animate(300)
+    ]),
+    transition('elevado => normal', [
+        animate(300)
+    ])
+])
