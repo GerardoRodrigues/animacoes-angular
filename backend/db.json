@@ -8,18 +8,18 @@
       "prioridade": "Alta"
     },
     {
-      "id": 2,
-      "descricao": "Lavar a louça",
-      "statusFinalizado": true,
-      "categoria": "Casa",
-      "prioridade": "Normal"
-    },
-    {
       "id": 3,
       "descricao": "Fazer planilhas",
       "statusFinalizado": true,
       "categoria": "Trabalho",
       "prioridade": "Baixa"
+    },
+    {
+      "id": 4,
+      "descricao": "Cozinhar",
+      "statusFinalizado": false,
+      "categoria": "Casa",
+      "prioridade": "Alta"
     }
   ]
 }

@@ -69,10 +69,15 @@
     <img src="assets/imagens/ilustracao-Tarefas.png"
         alt="Ilustração de um ambiente com mesa, computador, quadro e um vaso com planta">
   </div>
-  <div *ngIf="listaTarefas.length > 0, else semTarefas">
+  <div class="busca">
+    <p class="ff-prompt">Qual tarefa vc procura ?</p>
+    <input type="search" id="campo-busca" placeholder="Procure sua tarefa" [(ngModel)]="campoBusca" 
+    (keyup)="filtrarTarefas(campoBusca)">
+  </div>
+  <div *ngIf="tarefasFiltradas.length > 0, else semTarefas">
     <div
       class="lista-tarefas card-{{ tarefa.categoria }}"
-      *ngFor="let tarefa of listaTarefas, let i = index"
+      *ngFor="let tarefa of tarefasFiltradas, let i = index"
       (mouseover)="destacado = i"
       [@highlightedStated]="destacado === i ? 'highlighted' : 'default'">
       <div class="info-card">
