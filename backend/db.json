@@ -10,15 +10,29 @@
     {
       "id": 2,
       "descricao": "Lavar a louça",
-      "statusFinalizado": false,
+      "statusFinalizado": true,
       "categoria": "Casa",
       "prioridade": "Normal"
     },
     {
       "id": 3,
       "descricao": "Fazer planilhas",
-      "statusFinalizado": false,
+      "statusFinalizado": true,
       "categoria": "Trabalho",
+      "prioridade": "Alta"
+    },
+    {
+      "id": 7,
+      "descricao": "Casar",
+      "statusFinalizado": false,
+      "categoria": "Casa",
+      "prioridade": "Alta"
+    },
+    {
+      "id": 8,
+      "descricao": "Caminhar",
+      "statusFinalizado": false,
+      "categoria": "Casa",
       "prioridade": "Baixa"
     }
   ]

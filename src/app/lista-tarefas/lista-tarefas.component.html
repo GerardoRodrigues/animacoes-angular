@@ -5,9 +5,11 @@
     </button>
   </div>
   <form class="formulario ff-prompt"
+    [@shakeAnimation]="formulario.value"
     [formGroup]="formulario"
     *ngIf="formAberto"
-    @shownState>
+    @shownState
+    [@formButton]="formulario.valid ? 'valid' : 'invalid'">
     <label for="descricao">Descrição da tarefa</label>
     <input required
       type="text"
@@ -24,7 +26,7 @@
       formControlName="prioridade"
       [ngClass]="campoValidado('prioridade')"
     >
-      <option disabled value="">Selecione</option>
+      <option value="">Selecione</option>
       <option value="Alta">Alta</option>
       <option value="Normal">Normal</option>
       <option value="Baixa">Baixa</option>
@@ -38,7 +40,7 @@
       formControlName="categoria"
       [ngClass]="campoValidado('categoria')"
     >
-      <option disabled value="">Selecione</option>
+      <option value="">Selecione</option>
       <option value="Casa">Casa</option>
       <option value="Trabalho">Trabalho</option>
       <option value="Estudos">Estudos</option>
@@ -51,6 +53,7 @@
       <button
         (click)="salvarTarefa()"
         class="botao-form"
+        id="botao-salvar"
         [ngClass]="habilitarBotao()"
         [disabled]="!formulario.valid">
           Salvar
@@ -69,12 +72,18 @@
     <img src="assets/imagens/ilustracao-Tarefas.png"
         alt="Ilustração de um ambiente com mesa, computador, quadro e um vaso com planta">
   </div>
-  <div *ngIf="listaTarefas.length > 0, else semTarefas">
+  <div class="busca">
+    <p class="ff-prompt">Qual tarefa vc procura ?</p>
+    <input type="search" id="campo-busca" placeholder="Procure sua tarefa" [(ngModel)]="campoBusca" 
+    (keyup)="filtrarTarefas(campoBusca)">
+  </div>
+  <div *ngIf="tarefasFiltradas.length > 0, else semTarefas">
     <div
       class="lista-tarefas card-{{ tarefa.categoria }}"
-      *ngFor="let tarefa of listaTarefas, let i = index"
+      *ngFor="let tarefa of tarefasFiltradas, let i = index"
       (mouseover)="destacado = i"
-      [@highlightedStated]="destacado === i ? 'highlighted' : 'default'">
+      [@highlightedStated]="destacado === i ? 'highlighted' : 'default'"
+      @filterAnimation>
       <div class="info-card">
         <p class="categoria-tarefa categoria-{{ tarefa.categoria }}">
           <img
