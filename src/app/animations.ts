@@ -1,4 +1,4 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 
 export const highlightedStatedTrigger = trigger('highlightedStated', [
     state('default', style({
@@ -52,5 +52,23 @@ export const buttonCriarTrigger = trigger('creatButton', [
     ]),
     transition('elevado => normal', [
         animate(300)
+    ])
+])
+
+export const filterTrigger = trigger('filterAnimation', [
+    transition(':enter', [
+        style({opacity: 0, with: 0}),
+        animate('500ms ease-out', keyframes([
+            style({offset: 0, opacity: 0, with: 0}),
+            style({offset: 0.6, opacity: 0.5, with: '*', backgroundColor: 'lightgreen'}),
+            style({offset: 1, opacity: 1, with: '*'})
+        ]))
+    ]),
+    transition(':leave', [
+        animate('500ms cubic-bezier(.17,.67,.93,.55)', keyframes([
+            style({offset: 0, opacity: 1, with: '*'}),
+            style({offset: 0.5, opacity: 0.5, with: '*'}),
+            style({offset: 0.8, opacity: 0, with: 0, backgroundColor: 'rgb(252, 67, 67)'})
+        ]))
     ])
 ])

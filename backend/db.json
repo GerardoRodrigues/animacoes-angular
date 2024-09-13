@@ -20,6 +20,34 @@
       "statusFinalizado": false,
       "categoria": "Casa",
       "prioridade": "Alta"
+    },
+    {
+      "id": 5,
+      "descricao": "Comer",
+      "statusFinalizado": false,
+      "categoria": "Casa",
+      "prioridade": "Normal"
+    },
+    {
+      "id": 6,
+      "descricao": "Correr",
+      "statusFinalizado": false,
+      "categoria": "Trabalho",
+      "prioridade": "Alta"
+    },
+    {
+      "id": 7,
+      "descricao": "Casar",
+      "statusFinalizado": false,
+      "categoria": "Casa",
+      "prioridade": "Alta"
+    },
+    {
+      "id": 8,
+      "descricao": "Caminhar",
+      "statusFinalizado": false,
+      "categoria": "Casa",
+      "prioridade": "Baixa"
     }
   ]
 }
