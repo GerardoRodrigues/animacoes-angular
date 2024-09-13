@@ -1,4 +1,4 @@
-import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
+import { animate, group, keyframes, state, style, transition, trigger } from '@angular/animations';
 
 export const highlightedStatedTrigger = trigger('highlightedStated', [
     state('default', style({
@@ -70,5 +70,34 @@ export const filterTrigger = trigger('filterAnimation', [
             style({offset: 0.5, opacity: 0.5, with: '*'}),
             style({offset: 0.8, opacity: 0, with: 0, backgroundColor: 'rgb(252, 67, 67)'})
         ]))
+    ])
+])
+
+export const formButtonTrigger = trigger('formButton', [
+    transition('invalid => valid', [
+        group([
+            animate(200, style({
+                backgroundColor: '#63B77C'
+            })),
+            animate(150, style({
+                transform: 'scale(1.2)'
+            })),
+        ]),
+        animate(200, style({
+            transform: 'scale(1)'
+        }))
+    ]),
+    transition('valid => invalid', [
+        group([
+            animate(200, style({
+                backgroundColor: '#6C757D'
+            })),
+            animate(200, style({
+                transform: 'scale(0.8)'
+            }))
+        ]),
+        animate(200, style({
+            transform: 'scale(1)'
+        }))
     ])
 ])
