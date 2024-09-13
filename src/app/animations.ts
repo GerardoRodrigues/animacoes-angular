@@ -1,4 +1,4 @@
-import { animate, group, keyframes, state, style, transition, trigger } from '@angular/animations';
+import { animate, group, keyframes, query, state, style, transition, trigger } from '@angular/animations';
 
 export const highlightedStatedTrigger = trigger('highlightedStated', [
     state('default', style({
@@ -75,29 +75,42 @@ export const filterTrigger = trigger('filterAnimation', [
 
 export const formButtonTrigger = trigger('formButton', [
     transition('invalid => valid', [
+      query('#botao-salvar', [
         group([
-            animate(200, style({
-                backgroundColor: '#63B77C'
-            })),
-            animate(150, style({
-                transform: 'scale(1.2)'
-            })),
+          animate(200, style({
+            backgroundColor: '#63B77C'
+          })),
+          animate(100, style({
+            transform: 'scale(1.1)'
+          })),
         ]),
         animate(200, style({
-            transform: 'scale(1)'
-        }))
+          transform: 'scale(1)'
+        })),
+      ]),
     ]),
     transition('valid => invalid', [
+      query('#botao-salvar', [
         group([
-            animate(200, style({
-                backgroundColor: '#6C757D'
-            })),
-            animate(200, style({
-                transform: 'scale(0.8)'
-            }))
+          animate(200, style({
+            backgroundColor: '#6C757D'
+          })),
+          animate(100, style({
+            transform: 'scale(1.1)'
+          })),
         ]),
         animate(200, style({
-            transform: 'scale(1)'
-        }))
+          transform: 'scale(1)'
+        })),
+      ])])
+  ])
+
+export const shakeTrigger = trigger('shakeAnimation', [
+    transition('* => *', [
+        query('input.ng-invalid:focus, select.ng-invalid:focus', [
+            animate('0.5s', style({
+                border: '3px solid red'
+            }))
+        ], {optional: true})
     ])
 ])
